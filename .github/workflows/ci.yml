@@ -31,13 +31,20 @@ jobs:
         shell: cmd
         run: ci.bat
 
-      - name: Upload artifact
-        if: always()
+      - name: Upload Unix artifact
+        if: always() && runner.os != 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-${{ matrix.os }}
+          path: build/hello
+          if-no-files-found: warn
+
+      - name: Upload Windows artifact
+        if: always() && runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: hello-${{ matrix.os }}
           path: |
-            build/hello
             build/hello.exe
             build/Release/hello.exe
           if-no-files-found: warn
