@@ -29,3 +29,23 @@ cmake --build build --config Release
 ctest --test-dir build -C Release --output-on-failure
 ```
 
+Окремий запуск зібраної програми:
+
+Linux/macOS:
+
+```bash
+./build/hello
+```
+
+Windows:
+
+```text
+build\hello.exe
+```
+
+Для багатоконфігураційного генератора Windows:
+
+```text
+build\Release\hello.exe
+```
+
