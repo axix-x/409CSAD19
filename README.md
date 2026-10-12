@@ -16,3 +16,36 @@
 У чаті Copilot виберіть агента `build-engineer` і виконайте команду:
 
 `/init`
+
+## Hello project
+
+Цей репозиторій містить базовий C++17 проєкт `hello` з використанням CMake, GoogleTest і CTest.
+
+Команда запуску:
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+ctest --test-dir build -C Release --output-on-failure
+```
+
+Окремий запуск зібраної програми:
+
+Linux/macOS:
+
+```bash
+./build/hello
+```
+
+Windows:
+
+```text
+build\hello.exe
+```
+
+Для багатоконфігураційного генератора Windows:
+
+```text
+build\Release\hello.exe
+```
+
